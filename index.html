@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/scrollspy-js@1.2.0/dist/scrollspy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><img src="img/heart_mini.png" alt=""></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><img src="img/heart_mini.png" alt=""></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="wrapper">
+            <section id="home" class="slide">
+                <video autoplay muted loop id="designVideo" class="background-video">
+                    <source src="img/Space.mp4" type="video/mp4">
+                </video>
+                <div class="message">
+                    <h1 id="typewriter-text1">누구에게나 호감가는 디자인을 만들겠습니다!</h1>
+                </div>
+                <img id="heartImage" src="img/heart.png" alt="Heart Image">
+                <img id="cardImage" src="img/card_img.png" alt="Card Image">
+            </section>
+
+            <script>
+                window.onload = function() {
+                const cardImage = document.getElementById('cardImage');
+                const homeImage = document.getElementById('heartImage');
+    
+                cardImage.onload = function() {
+                    gsap.fromTo(cardImage, 
+                        { opacity: 0 }, 
+                        { opacity: 1, duration: 1.3, onComplete: function() {
+                            homeImage.style.visibility = 'visible'; // 이미지를 표시합니다
+                            gsap.fromTo(homeImage, 
+                                { scale: 0 }, 
+                                { scale: 1, duration: 1, ease: "elastic.out(1, 0.3)" }
+                            );
+                        }}
+                    );
+                };
+    
+                // 이미지가 캐시에서 로드된 경우를 대비하여
+                if (cardImage.complete) {
+                    cardImage.onload();
+                }
+            };
+            </script>
+            <script>
+                        document.addEventListener('DOMContentLoaded', (event) => {
+            function typeEffect(element, speed, delay) {
+                const text = element.innerHTML;
+                element.innerHTML = ""; // 텍스트 지우기
+
+                setTimeout(() => {
+                    element.style.opacity = '1'; // 타이핑 시작 전에 텍스트를 보이게 하기
+                    let i = 0;
+                    const timer = setInterval(() => {
+                        if (i < text.length) {
+                            element.innerHTML += text.charAt(i);
+                            i++;
+                        } else {
+                            clearInterval(timer);
+                        }
+                    }, speed);
+                }, delay);
+            }
+
+            const text1 = document.getElementById('typewriter-text1');
+            
+            // 타이핑 속도 (밀리초 단위)
+            const speed = 50;
+            
+            // 각 텍스트 요소에 타이핑 효과를 지연시켜 적용
+            typeEffect(text1, speed, 1100); // 텍스트1은 ms 후 타이핑 시작
+        });
+            </script>
+
+            <section id="skills" class="slide">
+                <video autoplay muted loop id="designVideo" class="background-video">
+                    <source src="img/Space.mp4" type="video/mp4">
+                </video>
+                <h1>Skills</h1>
+                <div class="skills-container">
+                    <div class="skill">
+                        <img src="img/skill_icon_ai.png" alt="Illustrator">
+                        <h2>Illustrator</h2>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar">
+                              <div class="bar" id="bar1"></div>
+                            </div>
+                            <p>80 / 100</p>
+                          </div>
+
+                    </div>
+                    <div class="skill">
+                        <img src="img/skill_icon_ps.png" alt="Photoshop">
+                        <h2>Photoshop</h2>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar">
+                              <div class="bar" id="bar2"></div>
+                            </div>
+                            <p>70 / 100</p>
+                          </div>
+                    </div>
+                    <div class="skill">
+                        <img src="img/skill_icon_ae.png" alt="Clip Studio">
+                        <h2>After Effects</h2>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar">
+                              <div class="bar" id="bar3"></div>
+                            </div>
+                            <p>50 / 100</p>
+                          </div>
+                    </div>
+                    <div class="skill">
+                        <img src="img/skill_icon_clip.png" alt="Clip Studio">
+                        <h2>Clip Studio</h2>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar">
+                              <div class="bar" id="bar4"></div>
+                            </div>
+                            <p>90 / 100</p>
+                          </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="design" class="section">
+                <video autoplay muted loop id="designVideo" class="background-video">
+                    <source src="img/Space.mp4" type="video/mp4">
+                </video>
+                <h1>Design</h1>
+            
+                <div class="swiper-container design-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/illust2.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust3.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust1.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust2.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust1.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust2.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust3.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/illust2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </section>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const mySwiper = new Swiper('.design-slider', {
+                        slidesPerView: 4, // 한 번에 보여줄 슬라이드 수
+                        spaceBetween: 10, // 슬라이드 사이의 간격 (px)
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+                });
+            </script>
+
+<section id="contact" class="slide">
+    <video autoplay muted loop id="designVideo" class="background-video">
+        <source src="img/Space.mp4" type="video/mp4">
+    </video>
+    <div class="contact-form hidden">
+        <h1>Contact</h1>
+        <div class="map">
+            <img src="img/room_img.png" alt="Map Image">
+        </div>
+        <form action="https://example.com/submit-form" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </form>
+        <button type="submit">Send Message</button>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form');
+
+    function checkScroll() {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        const contactFormTop = contactForm.getBoundingClientRect().top;
+
+        if (contactFormTop < triggerBottom) {
+            contactForm.classList.add('show');
+        } else {
+            contactForm.classList.remove('show');
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // Run once on page load to show elements already in view
+});
+</script>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const skills = document.querySelectorAll('.skill');
+
+            function checkScroll() {
+                const triggerBottom = window.innerHeight / 5 * 4;
+
+                skills.forEach((skill, index) => {
+                    const skillTop = skill.getBoundingClientRect().top;
+
+                    if (skillTop < triggerBottom) {
+                        setTimeout(() => {
+                            skill.classList.add('show');
+                        }, index * 200); // Adjust the delay (200ms) as needed
+                    } else {
+                        skill.classList.remove('show');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Run once on page load to show elements already in view
+        });
+    </script>
+</body>
+</html>
