@@ -47,7 +47,7 @@
                     gsap.fromTo(cardImage, 
                         { opacity: 0 }, 
                         { opacity: 1, duration: 1.3, onComplete: function() {
-                            homeImage.style.visibility = 'visible'; // 이미지를 표시합니다
+                            homeImage.style.visibility = 'visible'; 
                             gsap.fromTo(homeImage, 
                                 { scale: 0 }, 
                                 { scale: 1, duration: 1, ease: "elastic.out(1, 0.3)" }
@@ -56,7 +56,7 @@
                     );
                 };
     
-                // 이미지가 캐시에서 로드된 경우를 대비하여
+
                 if (cardImage.complete) {
                     cardImage.onload();
                 }
@@ -66,10 +66,10 @@
                         document.addEventListener('DOMContentLoaded', (event) => {
             function typeEffect(element, speed, delay) {
                 const text = element.innerHTML;
-                element.innerHTML = ""; // 텍스트 지우기
+                element.innerHTML = "";
 
                 setTimeout(() => {
-                    element.style.opacity = '1'; // 타이핑 시작 전에 텍스트를 보이게 하기
+                    element.style.opacity = '1'; 
                     let i = 0;
                     const timer = setInterval(() => {
                         if (i < text.length) {
@@ -84,11 +84,11 @@
 
             const text1 = document.getElementById('typewriter-text1');
             
-            // 타이핑 속도 (밀리초 단위)
+            
             const speed = 50;
             
-            // 각 텍스트 요소에 타이핑 효과를 지연시켜 적용
-            typeEffect(text1, speed, 1100); // 텍스트1은 ms 후 타이핑 시작
+          
+            typeEffect(text1, speed, 1100);
         });
             </script>
 
@@ -157,22 +157,16 @@
                             <img src="img/illust3.png" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="img/illust1.png" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/illust2.png" alt="">
+                            <img src="img/illust4.png" alt="">
                         </div>
                         <div class="swiper-slide">
                             <img src="img/illust1.png" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="img/illust2.png" alt="">
+                            <img src="img/illust5.png" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="img/illust3.png" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="img/illust2.png" alt="">
+                            <img src="img/illust6.png" alt="">
                         </div>
                     </div>
                     <div class="swiper-button-prev"></div>
@@ -182,8 +176,8 @@
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const mySwiper = new Swiper('.design-slider', {
-                        slidesPerView: 4, // 한 번에 보여줄 슬라이드 수
-                        spaceBetween: 10, // 슬라이드 사이의 간격 (px)
+                        slidesPerView: 4, 
+                        spaceBetween: 10, 
                         navigation: {
                             nextEl: '.swiper-button-next',
                             prevEl: '.swiper-button-prev',
@@ -228,7 +222,7 @@
     }
 
     window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Run once on page load to show elements already in view
+    checkScroll();
 });
 </script>
 
@@ -248,7 +242,7 @@
                     if (skillTop < triggerBottom) {
                         setTimeout(() => {
                             skill.classList.add('show');
-                        }, index * 200); // Adjust the delay (200ms) as needed
+                        }, index * 200); 
                     } else {
                         skill.classList.remove('show');
                     }
@@ -256,7 +250,7 @@
             }
 
             window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Run once on page load to show elements already in view
+            checkScroll(); 
         });
     </script>
 </body>
